@@ -6,14 +6,14 @@ Make sure you have the following installed on your system:
 - PHP 8.2 or later
 - Composer
 - Node.js and npm
-- MySQL or PostgreSQL (or any other supported database)
+- MySQL
 - Laravel Installer (optional)
 
 ## Installation Steps
 
 ### 1. Clone the Existing Project
 ```sh
-git clone <repository-url> my-project
+git clone https://github.com/dyusip/rhino-group-exam.git my-project
 cd my-project
 ```
 
@@ -47,6 +47,11 @@ php artisan migrate --seed
 ```sh
 npm run dev
 php artisan serve
+```
+
+### 8. To run the Unit Test
+```sh
+php artisan test
 ```
 
 ## Usage
