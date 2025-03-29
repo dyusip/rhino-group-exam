@@ -1,0 +1,51 @@
+<?php
+
+namespace $NAMESPACE$;
+
+class $CLASS_NAME$
+{
+    public function __construct() 
+    {
+        //
+    }
+
+    /**
+    * Get list
+    */
+    public function list() 
+    {
+        //
+    }
+
+    /**
+    * Get details
+    */
+    public function show() 
+    {
+        //
+    }
+
+    /**
+    * Create record
+    */
+    public function create() 
+    {
+        //
+    }
+    
+    /**
+    * Update record
+    */
+    public function update()
+    {
+        //
+    }
+
+    /**
+    * Delete record
+    */
+    public function delete() 
+    {
+        //
+    }
+}

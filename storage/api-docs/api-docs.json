@@ -1,0 +1,308 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Rhino Group Exam OpenApi Documentation",
+        "description": "Rhino Group Exam OpenApi Documentation",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/v1/favorites": {
+            "get": {
+                "tags": [
+                    "Favorite"
+                ],
+                "summary": "Get the favorite List",
+                "description": "Favorite List",
+                "operationId": "favoriteList",
+                "parameters": [
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "Sort",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "-title"
+                    },
+                    {
+                        "name": "filter",
+                        "in": "query",
+                        "description": "Filter",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "example": "Voluptas beatae ut."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "response": {
+                                        "summary": "If success, returns favorite lists record",
+                                        "value": {
+                                            "status": 200,
+                                            "message": "",
+                                            "data": []
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Favorite"
+                ],
+                "summary": "Create favorite record",
+                "description": "Create favorite record",
+                "operationId": "createFavorite",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "title",
+                                    "author",
+                                    "type"
+                                ],
+                                "properties": {
+                                    "title": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Fast and Furios"
+                                    },
+                                    "author": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Chris Morgan"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "The first film, based on the 1998 Vibe magazine article 'Racer X' by Ken Li"
+                                    },
+                                    "release_year": {
+                                        "type": "integer",
+                                        "format": "int64",
+                                        "example": "2001"
+                                    },
+                                    "type": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "movie"
+                                    },
+                                    "tags": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string",
+                                            "example": "action"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "response": {
+                                        "summary": "If success, returns successful createed favorite record message.",
+                                        "value": {
+                                            "status": 201,
+                                            "message": "",
+                                            "data": []
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/favorites/{id}": {
+            "get": {
+                "tags": [
+                    "Favorite"
+                ],
+                "summary": "Get the favorite recrd",
+                "description": "Favorite record",
+                "operationId": "getFavoriteRecord",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Favorite Id",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "response": {
+                                        "summary": "If success, returns favorite single record",
+                                        "value": {
+                                            "status": 200,
+                                            "message": "",
+                                            "data": []
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Favorite"
+                ],
+                "summary": "Update favorite record",
+                "description": "Update favorite record",
+                "operationId": "updateFavorite",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Favorite Id",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "title": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Fast and Furios"
+                                    },
+                                    "author": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Chris Morgan"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "The first film, based on the 1998 Vibe magazine article 'Racer X' by Ken Li"
+                                    },
+                                    "release_year": {
+                                        "type": "integer",
+                                        "format": "int64",
+                                        "example": "2001"
+                                    },
+                                    "type": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "movie"
+                                    },
+                                    "tags": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string",
+                                            "example": "action"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "response": {
+                                        "summary": "If success, returns successful updated favorite record.",
+                                        "value": {
+                                            "status": 201,
+                                            "message": "",
+                                            "data": []
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Favorite"
+                ],
+                "summary": "Delete the favorite record",
+                "description": "Delete Favorite Record",
+                "operationId": "deleteFavoriteRecord",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Favorite Id",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "response": {
+                                        "summary": "If success, returns favorite successfully deleted record message.",
+                                        "value": {
+                                            "status": 200,
+                                            "message": "",
+                                            "data": []
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Favorite",
+            "description": "Favorite"
+        }
+    ]
+}
